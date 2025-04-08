@@ -88,6 +88,41 @@
             margin-top: 10px;
         }
 
+        .button-links {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .link-button {
+            display: block;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-button.air {
+            background-color: #00a3c4;
+            color: white;
+        }
+
+        .link-button.air:hover {
+            background-color: #0089a8;
+        }
+
+        .link-button.filter {
+            background-color: #29b77f;
+            color: white;
+        }
+
+        .link-button.filter:hover {
+            background-color: #219667;
+        }
+
         @media (max-width: 480px) {
             .container {
                 padding: 20px;
@@ -128,6 +163,12 @@
             <div>Обемът на аквариума е приблизително:<br><strong id="result">–</strong></div>
             <div>Препоръчителен дебит на въздушната помпа:<br><strong id="suggestion">–</strong></div>
             <div>Препоръчителен дебит на филтрираща помпа:<br><strong id="filter">–</strong></div>
+
+            <div class="button-links">
+                <a href="https://www.petsmania.bg/pompi-za-vazduh-kompresori-za-vazduh.html" target="_blank" class="link-button air">Разгледай помпи за въздух</a>
+                <a href="https://www.petsmania.bg/vatreshni-filtri.html" target="_blank" class="link-button filter">Разгледай филтриращи помпи</a>
+            </div>
+
             <div class="note" id="note">⚠️ Ако аквариумът е гъсто населен с риби, има въздушен филтър или е дълбок (над 45 см), използвайте помпа с дебит 3 до 5 пъти обема.</div>
         </div>
     </div>
