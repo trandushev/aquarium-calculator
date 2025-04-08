@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Калкулатор за обем на аквариум</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f7f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 450px;
+        }
+        h2 {
+            text-align: center;
+            color: #0077aa;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            width: 100%;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #008fcc;
+        }
+        .output {
+            margin-top: 25px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: #e9f6fa;
+            border: 1px solid #b3e0ef;
+        }
+        .output strong {
+            display: block;
+            margin-top: 5px;
+            font-size: 18px;
+            color: #005f7a;
+        }
+        .note {
+            font-size: 14px;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Калкулатор за обем на аквариум</h2>
+
+        <label for="length">Дължина (в см):</label>
+        <input type="number" id="length" placeholder="напр. 80">
+
+        <label for="width">Ширина (в см):</label>
+        <input type="number" id="width" placeholder="напр. 35">
+
+        <label for="height">Височина (в см):</label>
+        <input type="number" id="height" placeholder="напр. 40">
+
+        <button onclick="calculateVolume()">Изчисли обема</button>
+
+        <div class="output">
+            <div>Обемът на аквариума е приблизително:<br><strong id="result">–</strong></div>
+            <div>Препоръчителен дебит на въздушната помпа:<br><strong id="suggestion">–</strong></div>
+            <div class="note" id="note">⚠️ Ако аквариумът е гъсто населен с риби, има въздушен филтър или е дълбок (над 45 см), използвайте помпа с дебит 3 до 5 пъти обема.</div>
+        </div>
+    </div>
+
+    <script>
+        function calculateVolume() {
+            const length = parseFloat(document.getElementById("length").value);
+            const width = parseFloat(document.getElementById("width").value);
+            const height = parseFloat(document.getElementById("height").value);
+
+            const resultEl = document.getElementById("result");
+            const suggestionEl = document.getElementById("suggestion");
+
+            if (isNaN(length) || isNaN(width) || isNaN(height)) {
+                resultEl.textContent = "Моля, въведете валидни стойности.";
+                suggestionEl.textContent = "–";
+                return;
+            }
+
+            const volume = (length * width * height) / 1000; // в литри
+            resultEl.textContent = `${volume.toFixed(2)} литра`;
+
+            const minLph = (volume * 2).toFixed(0);
+            const maxLph = (volume * 3).toFixed(0);
+
+            // преобразуване в литра на минута (л/мин)
+            const minLpm = (minLph / 60).toFixed(1);
+            const maxLpm = (maxLph / 60).toFixed(1);
+
+            suggestionEl.textContent = `${minLpm} – ${maxLpm} л/мин.`;
+        }
+    </script>
+</body>
+</html>
