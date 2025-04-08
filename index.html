@@ -1,217 +1,291 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <title>Калкулатор за обем на аквариум | PetsMania</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f9f8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-            width: 100%;
-            max-width: 460px;
-            text-align: center;
-        }
-        .logo {
-            display: block;
-            margin: 0 auto 10px;
-            max-width: 160px;
-        }
-        .tagline {
-            font-size: 14px;
-            color: #4b7c78;
-            margin-top: -5px;
-            margin-bottom: 20px;
-            font-style: italic;
-        }
-        h2 {
-            color: #227b74;
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-top: 15px;
-            font-weight: 600;
-            color: #3d3d3d;
-            text-align: left;
-        }
-        input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            border-radius: 8px;
-            border: 1px solid #cccccc;
-            font-size: 16px;
-            background-color: #fcfcfc;
-        }
-        button {
-            margin-top: 20px;
-            padding: 12px;
-            width: 100%;
-            background-color: #227b74;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #1c635e;
-        }
-        .output {
-            margin-top: 25px;
-            padding: 18px;
-            border-radius: 10px;
-            background-color: #e3f3f2;
-            border: 1px solid #b2dedc;
-        }
-        .output strong {
-            display: block;
-            margin-top: 5px;
-            font-size: 18px;
-            color: #1c4e4a;
-        }
-        .note {
-            font-size: 14px;
-            color: #4d4d4d;
-            margin-top: 10px;
-        }
+  <meta charset="UTF-8" />
+  <title>Калкулатор за аквариум: обем, въздушна и филтрираща помпа | PetsMania</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f9f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
 
-        .button-links {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      width: 100%;
+      max-width: 460px;
+      text-align: center;
+    }
 
-        .link-button {
-            display: block;
-            text-decoration: none;
-            padding: 12px;
-            border-radius: 8px;
-            font-weight: bold;
-            text-align: center;
-            transition: background-color 0.3s ease;
-        }
+    .logo {
+      display: block;
+      margin: 0 auto 10px;
+      max-width: 160px;
+    }
 
-        .link-button.air {
-            background-color: #00a3c4;
-            color: white;
-        }
+    .tagline {
+      font-size: 14px;
+      color: #4b7c78;
+      margin-top: -5px;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
 
-        .link-button.air:hover {
-            background-color: #0089a8;
-        }
+    h2 {
+      color: #227b74;
+      margin-bottom: 20px;
+    }
 
-        .link-button.filter {
-            background-color: #29b77f;
-            color: white;
-        }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      color: #3d3d3d;
+      text-align: left;
+    }
 
-        .link-button.filter:hover {
-            background-color: #219667;
-        }
+    input[type='number'] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 8px;
+      border: 1px solid #cccccc;
+      font-size: 16px;
+      background-color: #fcfcfc;
+    }
 
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-            }
-            h2 {
-                font-size: 20px;
-            }
-            label, input, button {
-                font-size: 14px;
-            }
-            .output strong {
-                font-size: 16px;
-            }
-            .note {
-                font-size: 13px;
-            }
-        }
-    </style>
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      width: 100%;
+      background-color: #227b74;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #1c635e;
+    }
+
+    .output {
+      margin-top: 25px;
+      padding: 18px;
+      border-radius: 10px;
+      background-color: #e3f3f2;
+      border: 1px solid #b2dedc;
+    }
+
+    .output strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 18px;
+      color: #1c4e4a;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #4d4d4d;
+      margin-top: 10px;
+    }
+
+    .button-links {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-button {
+      display: block;
+      text-decoration: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .link-button.air {
+      background-color: #00a3c4;
+      color: white;
+    }
+
+    .link-button.air:hover {
+      background-color: #0089a8;
+    }
+
+    .link-button.filter {
+      background-color: #29b77f;
+      color: white;
+    }
+
+    .link-button.filter:hover {
+      background-color: #219667;
+    }
+
+    .share-links {
+      margin-top: 20px;
+    }
+
+    .share-links p {
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .share-links a {
+      display: inline-block;
+      margin: 5px;
+      font-size: 0;
+    }
+
+    .share-links img {
+      width: 36px;
+      height: 36px;
+      vertical-align: middle;
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px;
+      }
+      h2 {
+        font-size: 20px;
+      }
+      label,
+      input,
+      button {
+        font-size: 14px;
+      }
+      .output strong {
+        font-size: 16px;
+      }
+      .note {
+        font-size: 13px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <img class="logo" src="https://www.petsmania.bg/media/35/1906.png" alt="PetsMania Logo">
-        <p class="tagline">🐟 <em>Изчислете идеалния обем и помпа за вашия аквариум с PetsMania</em></p>
-        <h2>Калкулатор за обем на аквариум</h2>
+  <div class="container">
+    <img class="logo" src="https://www.petsmania.bg/media/35/1906.png" alt="PetsMania Logo" />
+    <p class="tagline">🐟 <em>Изчислете идеалния обем и помпа за вашия аквариум с PetsMania</em></p>
+    <h2>Калкулатор за аквариум: обем и подходяща помпа</h2>
 
-        <label for="length">Дължина (в см):</label>
-        <input type="number" id="length" placeholder="напр. 80">
+    <label for="length">Дължина (в см):</label>
+    <input type="number" id="length" placeholder="напр. 80" />
 
-        <label for="width">Ширина (в см):</label>
-        <input type="number" id="width" placeholder="напр. 35">
+    <label for="width">Ширина (в см):</label>
+    <input type="number" id="width" placeholder="напр. 35" />
 
-        <label for="height">Височина (в см):</label>
-        <input type="number" id="height" placeholder="напр. 40">
+    <label for="height">Височина (в см):</label>
+    <input type="number" id="height" placeholder="напр. 40" />
 
-        <button onclick="calculateVolume()">Изчисли обема</button>
+    <button onclick="calculateVolume()">Изчисли обема</button>
 
-        <div class="output">
-            <div>Обемът на аквариума е приблизително:<br><strong id="result">–</strong></div>
-            <div>Препоръчителен дебит на въздушната помпа:<br><strong id="suggestion">–</strong></div>
-            <div>Препоръчителен дебит на филтрираща помпа:<br><strong id="filter">–</strong></div>
+    <div class="output">
+      <div>Обемът на аквариума е приблизително:<br /><strong id="result">–</strong></div>
+      <div>Препоръчителен дебит на въздушната помпа:<br /><strong id="suggestion">–</strong></div>
+      <div>Препоръчителен дебит на филтрираща помпа:<br /><strong id="filter">–</strong></div>
 
-            <div class="button-links">
-                <a href="https://www.petsmania.bg/pompi-za-vazduh-kompresori-za-vazduh.html" target="_blank" class="link-button air">Разгледай помпи за въздух</a>
-                <a href="https://www.petsmania.bg/vatreshni-filtri.html" target="_blank" class="link-button filter">Разгледай филтриращи помпи</a>
-            </div>
+      <div class="button-links">
+        <a href="https://www.petsmania.bg/pompi-za-vazduh-kompresori-za-vazduh.html" target="_blank" class="link-button air">Разгледай помпи за въздух</a>
+        <a href="https://www.petsmania.bg/vatreshni-filtri.html" target="_blank" class="link-button filter">Разгледай филтриращи помпи</a>
+      </div>
 
-            <div class="note" id="note">⚠️ Ако аквариумът е гъсто населен с риби, има въздушен филтър или е дълбок (над 45 см), използвайте помпа с дебит 3 до 5 пъти обема.</div>
-        </div>
+      <div class="share-links">
+        <p>Сподели с приятели:</p>
+        <a href="#" onclick="shareOn('facebook')" title="Сподели във Facebook">
+          <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" />
+        </a>
+        <a href="#" onclick="shareOn('messenger')" title="Messenger">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111710.png" alt="Messenger" />
+        </a>
+        <a href="#" onclick="shareOn('viber')" title="Viber">
+          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968899.png" alt="Viber" />
+        </a>
+        <a href="#" onclick="shareOn('email')" title="Email">
+          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
+        </a>
+      </div>
+
+      <div class="note" id="note">⚠️ Ако аквариумът е гъсто населен с риби, има въздушен филтър или е дълбок (над 45 см), използвайте помпа с дебит 3 до 5 пъти обема.</div>
     </div>
+  </div>
 
-    <script>
-        function calculateVolume() {
-            const length = parseFloat(document.getElementById("length").value);
-            const width = parseFloat(document.getElementById("width").value);
-            const height = parseFloat(document.getElementById("height").value);
+  <script>
+    function calculateVolume() {
+      const length = parseFloat(document.getElementById("length").value);
+      const width = parseFloat(document.getElementById("width").value);
+      const height = parseFloat(document.getElementById("height").value);
 
-            const resultEl = document.getElementById("result");
-            const suggestionEl = document.getElementById("suggestion");
-            const filterEl = document.getElementById("filter");
+      const resultEl = document.getElementById("result");
+      const suggestionEl = document.getElementById("suggestion");
+      const filterEl = document.getElementById("filter");
 
-            if (isNaN(length) || isNaN(width) || isNaN(height)) {
-                resultEl.textContent = "Моля, въведете валидни стойности.";
-                suggestionEl.textContent = "–";
-                filterEl.textContent = "–";
-                return;
-            }
+      if (isNaN(length) || isNaN(width) || isNaN(height)) {
+        resultEl.textContent = "Моля, въведете валидни стойности.";
+        suggestionEl.textContent = "–";
+        filterEl.textContent = "–";
+        return;
+      }
 
-            const volume = (length * width * height) / 1000; // в литри
-            resultEl.textContent = `${volume.toFixed(2)} литра`;
+      const volume = (length * width * height) / 1000;
+      resultEl.textContent = `${volume.toFixed(2)} литра`;
 
-            const minLph = (volume * 2).toFixed(0);
-            const maxLph = (volume * 3).toFixed(0);
-            const minLpm = (minLph / 60).toFixed(1);
-            const maxLpm = (maxLph / 60).toFixed(1);
-            suggestionEl.textContent = `${minLpm} – ${maxLpm} л/мин.`;
+      const minLph = (volume * 2).toFixed(0);
+      const maxLph = (volume * 3).toFixed(0);
+      const minLpm = (minLph / 60).toFixed(1);
+      const maxLpm = (maxLph / 60).toFixed(1);
+      suggestionEl.textContent = `${minLpm} – ${maxLpm} л/мин.`;
 
-            let minFilter, maxFilter;
-            if (volume <= 20) {
-                minFilter = volume * 6;
-                maxFilter = volume * 10;
-            } else if (volume <= 100) {
-                minFilter = volume * 4;
-                maxFilter = volume * 6;
-            } else {
-                minFilter = volume * 3;
-                maxFilter = volume * 5;
-            }
-            filterEl.textContent = `${minFilter.toFixed(0)} – ${maxFilter.toFixed(0)} л/ч.`;
-        }
-    </script>
+      let minFilter, maxFilter;
+      if (volume <= 20) {
+        minFilter = volume * 6;
+        maxFilter = volume * 10;
+      } else if (volume <= 100) {
+        minFilter = volume * 4;
+        maxFilter = volume * 6;
+      } else {
+        minFilter = volume * 3;
+        maxFilter = volume * 5;
+      }
+      filterEl.textContent = `${minFilter.toFixed(0)} – ${maxFilter.toFixed(0)} л/ч.`;
+    }
+
+    function shareOn(platform) {
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent("Виж този полезен аквариумен калкулатор от PetsMania!");
+
+      let shareUrl = "";
+      switch (platform) {
+        case "facebook":
+          shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+          break;
+        case "messenger":
+          shareUrl = `fb-messenger://share/?link=${url}`;
+          break;
+        case "viber":
+          shareUrl = `viber://forward?text=${text}%20${url}`;
+          break;
+        case "email":
+          shareUrl = `mailto:?subject=Полезен аквариумен калкулатор&body=${text}%20${url}`;
+          break;
+      }
+
+      window.open(shareUrl, "_blank");
+    }
+  </script>
 </body>
 </html>
