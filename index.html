@@ -93,6 +93,7 @@
         <div class="output">
             <div>Обемът на аквариума е приблизително:<br><strong id="result">–</strong></div>
             <div>Препоръчителен дебит на въздушната помпа:<br><strong id="suggestion">–</strong></div>
+            <div>Препоръчителен дебит на филтрационна помпа:<br><strong id="filter">–</strong></div>
             <div class="note" id="note">⚠️ Ако аквариумът е гъсто населен с риби, има въздушен филтър или е дълбок (над 45 см), използвайте помпа с дебит 3 до 5 пъти обема.</div>
         </div>
     </div>
@@ -105,10 +106,12 @@
 
             const resultEl = document.getElementById("result");
             const suggestionEl = document.getElementById("suggestion");
+            const filterEl = document.getElementById("filter");
 
             if (isNaN(length) || isNaN(width) || isNaN(height)) {
                 resultEl.textContent = "Моля, въведете валидни стойности.";
                 suggestionEl.textContent = "–";
+                filterEl.textContent = "–";
                 return;
             }
 
@@ -117,12 +120,22 @@
 
             const minLph = (volume * 2).toFixed(0);
             const maxLph = (volume * 3).toFixed(0);
-
-            // преобразуване в литра на минута (л/мин)
             const minLpm = (minLph / 60).toFixed(1);
             const maxLpm = (maxLph / 60).toFixed(1);
-
             suggestionEl.textContent = `${minLpm} – ${maxLpm} л/мин.`;
+
+            let minFilter, maxFilter;
+            if (volume <= 20) {
+                minFilter = volume * 6;
+                maxFilter = volume * 10;
+            } else if (volume <= 100) {
+                minFilter = volume * 4;
+                maxFilter = volume * 6;
+            } else {
+                minFilter = volume * 3;
+                maxFilter = volume * 5;
+            }
+            filterEl.textContent = `${minFilter.toFixed(0)} – ${maxFilter.toFixed(0)} л/ч.`;
         }
     </script>
 </body>
