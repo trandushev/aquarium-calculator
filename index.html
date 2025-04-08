@@ -2,11 +2,11 @@
 <html lang="bg">
 <head>
     <meta charset="UTF-8">
-    <title>Калкулатор за обем на аквариум</title>
+    <title>Калкулатор за обем на аквариум | PetsMania</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f7f9;
+            background-color: #f5f9f8;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -14,37 +14,51 @@
             margin: 0;
         }
         .container {
-            background-color: white;
+            background-color: #ffffff;
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             width: 100%;
-            max-width: 450px;
+            max-width: 460px;
+            text-align: center;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 10px;
+            max-width: 160px;
+        }
+        .tagline {
+            font-size: 14px;
+            color: #4b7c78;
+            margin-top: -5px;
+            margin-bottom: 20px;
+            font-style: italic;
         }
         h2 {
-            text-align: center;
-            color: #0077aa;
+            color: #227b74;
             margin-bottom: 20px;
         }
         label {
             display: block;
             margin-top: 15px;
             font-weight: 600;
-            color: #333;
+            color: #3d3d3d;
+            text-align: left;
         }
         input[type="number"] {
             width: 100%;
             padding: 10px;
             margin-top: 5px;
             border-radius: 8px;
-            border: 1px solid #ccc;
+            border: 1px solid #cccccc;
             font-size: 16px;
+            background-color: #fcfcfc;
         }
         button {
             margin-top: 20px;
             padding: 12px;
             width: 100%;
-            background-color: #00aaff;
+            background-color: #227b74;
             color: white;
             border: none;
             border-radius: 8px;
@@ -53,30 +67,50 @@
             transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #008fcc;
+            background-color: #1c635e;
         }
         .output {
             margin-top: 25px;
-            padding: 15px;
+            padding: 18px;
             border-radius: 10px;
-            background-color: #e9f6fa;
-            border: 1px solid #b3e0ef;
+            background-color: #e3f3f2;
+            border: 1px solid #b2dedc;
         }
         .output strong {
             display: block;
             margin-top: 5px;
             font-size: 18px;
-            color: #005f7a;
+            color: #1c4e4a;
         }
         .note {
             font-size: 14px;
-            color: #666;
+            color: #4d4d4d;
             margin-top: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            label, input, button {
+                font-size: 14px;
+            }
+            .output strong {
+                font-size: 16px;
+            }
+            .note {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <img class="logo" src="https://www.petsmania.bg/media/35/1906.png" alt="PetsMania Logo">
+        <p class="tagline">🐟 <em>Изчислете идеалния обем и помпа за вашия аквариум с PetsMania</em></p>
         <h2>Калкулатор за обем на аквариум</h2>
 
         <label for="length">Дължина (в см):</label>
@@ -93,7 +127,7 @@
         <div class="output">
             <div>Обемът на аквариума е приблизително:<br><strong id="result">–</strong></div>
             <div>Препоръчителен дебит на въздушната помпа:<br><strong id="suggestion">–</strong></div>
-            <div>Препоръчителен дебит на филтрационна помпа:<br><strong id="filter">–</strong></div>
+            <div>Препоръчителен дебит на филтрираща помпа:<br><strong id="filter">–</strong></div>
             <div class="note" id="note">⚠️ Ако аквариумът е гъсто населен с риби, има въздушен филтър или е дълбок (над 45 см), използвайте помпа с дебит 3 до 5 пъти обема.</div>
         </div>
     </div>
