@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-392087583');
+</script>
   <meta charset="UTF-8" />
   <title>Калкулатор за аквариум: обем, въздушна и филтрираща помпа | PetsMania</title>
   <style>
@@ -13,7 +21,6 @@
       min-height: 100vh;
       margin: 0;
     }
-
     .container {
       background-color: #ffffff;
       padding: 30px;
@@ -23,13 +30,11 @@
       max-width: 460px;
       text-align: center;
     }
-
     .logo {
       display: block;
       margin: 0 auto 10px;
       max-width: 160px;
     }
-
     .tagline {
       font-size: 14px;
       color: #4b7c78;
@@ -37,12 +42,10 @@
       margin-bottom: 20px;
       font-style: italic;
     }
-
     h2 {
       color: #227b74;
       margin-bottom: 20px;
     }
-
     label {
       display: block;
       margin-top: 15px;
@@ -50,7 +53,6 @@
       color: #3d3d3d;
       text-align: left;
     }
-
     input[type='number'] {
       width: 100%;
       padding: 10px;
@@ -60,7 +62,6 @@
       font-size: 16px;
       background-color: #fcfcfc;
     }
-
     button {
       margin-top: 20px;
       padding: 12px;
@@ -73,11 +74,9 @@
       font-size: 16px;
       transition: background-color 0.3s ease;
     }
-
     button:hover {
       background-color: #1c635e;
     }
-
     .output {
       margin-top: 25px;
       padding: 18px;
@@ -85,27 +84,23 @@
       background-color: #e3f3f2;
       border: 1px solid #b2dedc;
     }
-
     .output strong {
       display: block;
       margin-top: 5px;
       font-size: 18px;
       color: #1c4e4a;
     }
-
     .note {
       font-size: 14px;
       color: #4d4d4d;
       margin-top: 10px;
     }
-
     .button-links {
       margin-top: 20px;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
     .link-button {
       display: block;
       text-decoration: none;
@@ -115,47 +110,38 @@
       text-align: center;
       transition: background-color 0.3s ease;
     }
-
     .link-button.air {
       background-color: #00a3c4;
       color: white;
     }
-
     .link-button.air:hover {
       background-color: #0089a8;
     }
-
     .link-button.filter {
       background-color: #29b77f;
       color: white;
     }
-
     .link-button.filter:hover {
       background-color: #219667;
     }
-
     .share-links {
       margin-top: 20px;
     }
-
     .share-links p {
       margin-bottom: 10px;
       color: #333;
       font-weight: bold;
     }
-
     .share-links a {
       display: inline-block;
       margin: 5px;
       font-size: 0;
     }
-
     .share-links img {
       width: 36px;
       height: 36px;
       vertical-align: middle;
     }
-
     @media (max-width: 480px) {
       .container {
         padding: 20px;
@@ -185,10 +171,8 @@
 
     <label for="length">Дължина (в см):</label>
     <input type="number" id="length" placeholder="напр. 80" />
-
     <label for="width">Ширина (в см):</label>
     <input type="number" id="width" placeholder="напр. 35" />
-
     <label for="height">Височина (в см):</label>
     <input type="number" id="height" placeholder="напр. 40" />
 
@@ -207,13 +191,13 @@
       <div class="share-links">
         <p>Сподели с приятели:</p>
         <a href="#" onclick="shareOn('facebook')" title="Сподели във Facebook">
-          <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook" />
+          <img src="https://petsmania.bg/media/dev/Facebook_Logo_Primary.png" alt="Facebook" />
         </a>
         <a href="#" onclick="shareOn('messenger')" title="Messenger">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111710.png" alt="Messenger" />
+          <img src="https://petsmania.bg/media/dev/Messenger_Icon_Primary_Blue.png" alt="Messenger" />
         </a>
         <a href="#" onclick="shareOn('viber')" title="Viber">
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968899.png" alt="Viber" />
+          <img src="https://petsmania.bg/media/dev/purple-icon_brand-center.png" alt="Viber" />
         </a>
         <a href="#" onclick="shareOn('email')" title="Email">
           <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" />
